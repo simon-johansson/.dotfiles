@@ -1,0 +1,46 @@
+# brew doctor
+
+install wget
+install node
+install git
+install zsh
+
+# Cask
+install caskroom/cask/brew-cask
+
+# Programming
+cask install iterm2
+cask install transmit
+
+cask install istat-menus
+cask install the-unarchiver
+cask install alfred
+cask install google-chrome
+cask install dropbox
+cask install vlc
+cask install evernote
+cask install 1password
+
+# cask install skitch
+# cask install max
+# cask install grandperspective
+# cask install opera
+# cask install ifunbox
+# cask install apptrap
+# cask install totalfinder
+# cask install sketch
+# cask install github
+
+# Games
+cask install steam
+
+# Quicklook extension
+cask install qlcolorcode
+cask install qlstephen
+cask install qlmarkdown
+cask install quicklook-json
+cask install qlprettypatch
+cask install quicklook-csv
+cask install betterzipql
+cask install webpquicklook
+cask install suspicious-package
