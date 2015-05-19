@@ -1,0 +1,58 @@
+#!/bin/zsh
+
+modules=(
+
+  # Package managers
+  'npm'\
+  'bower'\
+
+  # Yeoman
+  'yo'\
+  'generator-angular-fullstack'\
+  'generator-bootstrap'\
+  'generator-webapp'\
+  'generator-coffee'\
+  'generator-coffee-module'\
+  'generator-h5bp'\
+  'generator-jade'\
+  'generator-node'\
+  'generator-zf5'\
+
+  # Generators
+  'sails'\
+  'express-generator'\
+
+  # Grunt & gulp
+  'grunt-cli'\
+  'gulp'\
+
+  # Linting
+  'jshint'\
+  'coffeelint'\
+  'csslint'\
+
+  # Compilers
+  'node-sass'\
+  'less'\
+  'jade'\
+  'browserify'\
+  'coffee-script'\
+
+  # Testing & coverage
+  'istanbul'\
+  'mocha'\
+
+  # Utils
+  'n'\
+  'js2coffee'\
+  'nodemon'\
+  'http-server'\
+  'node-inspector'\
+  'npm-check-updates'\
+  'watch-lessc'\
+  'fixpack'\
+  )
+
+for module in "${modules[@]}"; do
+  sudo npm install -g ${module}
+done

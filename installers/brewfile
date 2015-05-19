@@ -4,6 +4,7 @@ install wget
 install node
 install git
 install zsh
+# install karn
 
 # Cask
 install caskroom/cask/brew-cask
