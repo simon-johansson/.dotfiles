@@ -67,3 +67,59 @@ json () {
 copy-path () {
     pwd | pbcopy
 }
+
+tophistory() {
+  history | awk '{a[$2]++ } END{for(i in a){print a[i] " " i}}' | sort -rn | head -n 30
+}
+
+# dlfrom user@example.com /tmp/files.tar ['.']
+# rsync -v user@example.com:/tmp/files.tar .
+dlfrom () {
+    ssh=$1
+    remote_file=$2
+    local_path='.'
+    if [ ! -z "$3" ]; then
+        local_path="$3"
+    fi
+    rsync -v $ssh:$remote_file $local_path
+}
+
+function extract {
+  echo Extracting $1 ...
+  if [ -f $1 ] ; then
+      case $1 in
+          *.tar.bz2)   tar xjf $1  ;;
+          *.tar.gz)    tar xzf $1  ;;
+          *.bz2)       bunzip2 $1  ;;
+          *.rar)       unrar x $1    ;;
+          *.gz)        gunzip $1   ;;
+          *.tar)       tar xf $1   ;;
+          *.tbz2)      tar xjf $1  ;;
+          *.tgz)       tar xzf $1  ;;
+          *.zip)       unzip $1   ;;
+          *.Z)         uncompress $1  ;;
+          *.7z)        7z x $1  ;;
+          *)        echo "'$1' cannot be extracted via extract()" ;;
+      esac
+  else
+      echo "'$1' is not a valid file"
+  fi
+}
+
+# display a neatly formatted path
+path() {
+  echo $PATH | tr ":" "\n" | \
+    awk "{ sub(\"/usr\",   \"$fg_no_bold[green]/usr$reset_color\"); \
+           sub(\"/bin\",   \"$fg_no_bold[blue]/bin$reset_color\"); \
+           sub(\"/opt\",   \"$fg_no_bold[cyan]/opt$reset_color\"); \
+           sub(\"/sbin\",  \"$fg_no_bold[magenta]/sbin$reset_color\"); \
+           sub(\"/local\", \"$fg_no_bold[yellow]/local$reset_color\"); \
+           print }"
+}
+
+cat() {
+  local out colored
+  out=$(/bin/cat $@)
+  colored=$(echo $out | pygmentize -f console -g 2>/dev/null)
+  [[ -n $colored ]] && echo "$colored" || echo "$out"
+}
