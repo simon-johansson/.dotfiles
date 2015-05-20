@@ -1,0 +1,14 @@
+[user]
+	name = Simon Johansson
+	email =
+[core]
+	excludesfile = /Users/sijo/.gitignore_global
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  editor = vim
+[web]
+  browser = google-chrome
+[commit]
+  template = ~/.gitmessage
+[difftool "..."]
+[mergetool "..."]
+

@@ -2,7 +2,7 @@
 export DOTFILES=~/.dotfiles
 export ANTIGEN=$DOTFILES/antigen
 
-source $DOTFILES/bootstrap.zsh
+source $DOTFILES/zsh/bootstrap.zsh
 
 auto-ls () { ls; }
 chpwd_functions=( auto-ls $chpwd_functions )
