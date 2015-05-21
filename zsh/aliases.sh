@@ -2,6 +2,8 @@
 # ZSH related
 alias zshconfig="subl ~/.zshrc"
 alias reload="source ~/.zshrc"
+alias update-symlinks="rcup -d symlinks -v"
+alias update-symlinks-dryrun="lsrc -d symlinks -v"
 
 # Folder shorcuts
 alias desk="cd ~/Desktop/"
@@ -11,19 +13,19 @@ alias tmp="cd /tmp"
 alias proj="cd ~/Projects"
 
 # File listing
-alias ls='ls -GFh'
-alias ll='ls -GFhl'
+alias ls="ls -GFh"
+alias ll="ls -GFhl"
 alias lsa="ls -a"
 
 # Directory movement
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 
 # Searching
-alias f='find'
-alias ff='find -type f -iname'
-alias fd='find -type d -iname'
+alias f="find"
+alias ff="find -type f -iname"
+alias fd="find -type d -iname"
 
 # Applications
 alias "unzip-all"="unzip \*.zip"
@@ -38,5 +40,5 @@ alias trolla="ssh sijo@trol.la"
 alias mkdir="mkdir -p "
 alias psgrep="ps aux | grep "
 alias :q="exit"
-alias cello='say -v cellos "di di di di di di di di di di di di di di di di di di di di di di di di di di"'
+alias cello="say -v cellos 'di di di di di di di di di di di di di di di di di di di di di di di di di di'"
 alias rm="rm -i"
