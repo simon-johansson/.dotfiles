@@ -1,7 +1,6 @@
-#!/bin/zsh
+#!/bin/bash
 
 modules=(
-
   # Package managers
   'npm'\
   'bower'\
@@ -9,14 +8,7 @@ modules=(
   # Yeoman
   'yo'\
   'generator-angular-fullstack'\
-  'generator-bootstrap'\
   'generator-webapp'\
-  'generator-coffee'\
-  'generator-coffee-module'\
-  'generator-h5bp'\
-  'generator-jade'\
-  'generator-node'\
-  'generator-zf5'\
 
   # Generators
   'sails'\
@@ -39,7 +31,7 @@ modules=(
   'coffee-script'\
 
   # Testing & coverage
-  'istanbul'\
+  # 'istanbul'\
   'mocha'\
 
   # Utils
@@ -47,7 +39,6 @@ modules=(
   'js2coffee'\
   'nodemon'\
   'http-server'\
-  'node-inspector'\
   'npm-check-updates'\
   'watch-lessc'\
   'fixpack'\
