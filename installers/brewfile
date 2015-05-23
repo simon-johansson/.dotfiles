@@ -1,47 +1,75 @@
-# brew doctor
 
-install wget
-install node
-install git
-install zsh
-# install karn
+brew 'zsh'
+brew 'wget'
+brew 'tree'
+brew 'node'
+brew 'git'
+brew 'autojump'
+brew 'mongodb'
+brew 'python'
+brew 'unrar'
+brew 'mackup'
+brew 'karn'
+brew 'rcm'
 
 # Cask
-install caskroom/cask/brew-cask
+brew caskroom/cask/brew-cask
 
 # Programming
-cask install iterm2
-cask install transmit
+cask 'iterm2'
+cask 'transmit'
+cask 'gitx'
+cask 'sublime-text3'
 
-cask install istat-menus
-cask install the-unarchiver
-cask install alfred
-cask install google-chrome
-cask install dropbox
-cask install vlc
-cask install evernote
-cask install 1password
+# Browsers
+cask 'google-chrome'
+cask 'firefox'
 
-# cask install skitch
-# cask install max
-# cask install grandperspective
-# cask install opera
-# cask install ifunbox
-# cask install apptrap
-# cask install totalfinder
-# cask install sketch
-# cask install github
+# Status bar apps
+cask 'istat-menus'
+cask 'flux'
+cask 'caffeine'
+cask 'alfred'
+cask '1password'
+
+# Social
+cask 'skype'
+cask 'slack'
+
+# Cloud apps
+cask 'google-drive'
+cask 'dropbox'
+cask 'evernote'
+
+# Media
+cask 'vlc'
+cask 'spotify'
+
+# Other
+cask 'the-unarchiver'
+cask 'mou'
+cask 'balsamiq-mockups'
+cask 'sdformatter'
 
 # Games
-cask install steam
+cask 'steam'
 
 # Quicklook extension
-cask install qlcolorcode
-cask install qlstephen
-cask install qlmarkdown
-cask install quicklook-json
-cask install qlprettypatch
-cask install quicklook-csv
-cask install betterzipql
-cask install webpquicklook
-cask install suspicious-package
+cask 'qlcolorcode'
+cask 'qlstephen'
+cask 'qlmarkdown'
+cask 'quicklook-json'
+cask 'qlprettypatch'
+cask 'quicklook-csv'
+cask 'betterzipql'
+cask 'webpquicklook'
+cask 'suspicious-package'
+
+# Fonts
+cask install 'font-fontawesome'
+cask install 'font-source-code-pro'
+cask install 'font-source-code-pro-for-powerline'
+cask install 'font-inconsolata'
+cask install 'font-inconsolata-for-powerline'
+cask install 'font-droid-sans-mono'
+cask install 'font-droid-sans-mono-for-powerline'
