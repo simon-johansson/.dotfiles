@@ -1,9 +1,10 @@
 
 export DOTFILES=~/.dotfiles
-export ANTIGEN=$DOTFILES/antigen
+export ANTIGEN=~/.antigen
 
 source $DOTFILES/zsh/bootstrap.zsh
 
+# Auto 'ls' when you enter a new folder
 auto-ls () { ls; }
 chpwd_functions=( auto-ls $chpwd_functions )
 
