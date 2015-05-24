@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# if [[ $UID != 0 ]]; then
-#     echo "Please run this script with sudo:"
-#     echo "sudo $0 $*"
-#     exit 1
-# fi
+if [[ $UID != 0 ]]; then
+  echo "Please run this script with sudo:"
+  echo "sudo $0 $*"
+  exit 1
+fi
 
 USAGE="$(basename "$0") [-h --help] [-b --brew] [-v --vim] [-z --zsh] [-n --npm] [-s --symlinks] [-a --all]
 
@@ -69,13 +69,19 @@ while [ $# -gt 0 ]; do
 done
 
 if $INSTALL_BREW; then
+    echo "
+##################################
+Brew formulas are being installed
+##################################"
   # "$DIR/installers/brew.sh"
-  echo 'Brew formulas installed'
 fi
 
 if $INSTALL_ZSH_PLUGINS; then
+  echo "
+###############################
+ZSH plugins are being installed
+###############################"
   # "$DIR/installers/zsh.sh"
-  echo 'ZSH plugins installed'
 fi
 
 # if $INSTALL_VIM; then
@@ -83,11 +89,23 @@ fi
 # fi
 
 if $INSTALL_NPM; then
+  echo "
+###############################
+npm modules are being installed
+###############################"
   # "$DIR/installers/npm.sh"
-  echo 'npm modules installed'
 fi
 
 if $CREATE_SYMLINKS; then
-  rcup -d symlinks -v
-  echo 'Symlinks created'
+  echo "
+############################
+Symlinks are being created
+############################"
+  if type "rcup" > /dev/null; then
+    # rcup -d symlinks -v
+  else
+    echo "
+  Failed: 'rcm', which is used to create symlinks, was not found.
+  "
+  fi
 fi
