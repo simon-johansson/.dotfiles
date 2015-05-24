@@ -123,3 +123,49 @@ cat() {
   colored=$(echo $out | pygmentize -f console -g 2>/dev/null)
   [[ -n $colored ]] && echo "$colored" || echo "$out"
 }
+
+# Skriv ut så att man ser vad som installeras/uppdateras
+update_everything() {
+  update_brew
+  update_zsh
+  update_node
+  update_ruby
+}
+
+_updating_header() {
+  echo "
+*****************************
+  $1 IS BEING UPDATED
+*****************************\n"
+}
+
+update_brew() {
+  _updating_header 'HOMEBREW'
+  brew update
+  brew upgrade --all
+  brew cleanup
+  brew cask cleanup
+}
+
+update_zsh() {
+  _updating_header 'ZSH'
+  antigen selfupdate
+  antigen update
+}
+
+update_node() {
+  _updating_header 'NODE'
+  # Node
+  npm cache clean -f
+  npm install -g n
+  n stable
+
+  # npm
+  npm update -g
+}
+
+update_ruby() {
+  _updating_header 'RUBY'
+  update_rubygems
+  gem update --system
+}
