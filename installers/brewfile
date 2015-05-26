@@ -1,4 +1,8 @@
 
+brew 'coreutils'
+brew 'findutils'
+brew 'rename'
+brew 'bash'
 brew 'zsh'
 brew 'wget'
 brew 'tree'
@@ -23,6 +27,7 @@ cask 'sublime-text3'
 
 # Browsers
 cask 'google-chrome'
+cask 'google-chrome-canary'
 cask 'firefox'
 
 # Status bar apps
@@ -50,6 +55,7 @@ cask 'the-unarchiver'
 cask 'mou'
 cask 'balsamiq-mockups'
 cask 'sdformatter'
+cask 'appcleaner'
 
 # Games
 cask 'steam'
