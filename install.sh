@@ -6,17 +6,11 @@ if [[ $UID != 0 ]]; then
   exit 1
 fi
 
-USAGE="$(basename "$0") [-h --help] [-b --brew] [-v --vim] [-z --zsh] [-n --npm] [-s --symlinks] [-a --all]
+USAGE="$(basename "$0") [-b --brew] [-z --zsh] [-n --npm] [-s --symlinks] [-a --all] • [-m --mackup] [-h --help]
 
 OPTIONS
-        -h, --help
-            Print this message
-
         -b, --brew
             Install Homebrew & Casks + formulas
-
-        -v, --vim
-            Install VIM plugins & syntax
 
         -z, --zsh
             Install ZSH plugins
@@ -28,39 +22,47 @@ OPTIONS
             Create symlinks to ~/ for files in symlinks/ folder
 
         -a, --all
-            Do all of the above\n"
+            Do all of the above
+
+        -------------------------------------------------------
+
+        -m, --mackup
+            Restore application settings from Dropbox
+
+        -h, --help
+            Print this message\n\n"
+
 if [[ -z $1 ]]; then
   printf "$USAGE"
   exit 0
 fi
 DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-INSTALL_VIM=false
 INSTALL_ZSH_PLUGINS=false
 INSTALL_BREW=false
 INSTALL_NPM=false
 CREATE_SYMLINKS=false
+RESTORE_BACKUP=false
 
-if ! OPTIONS=$(getopt -o hgcmpvtzaeb -l help,vim,zsh,brew,npm,symlinks,all -- "$@")
+if ! OPTIONS=$(getopt -o hgcmpvtzaeb -l help,zsh,brew,npm,symlinks,mackup,all -- "$@")
 then
   # something went wrong, getopt will put out an error message for us
   exit 1
 fi
 while [ $# -gt 0 ]; do
   case $1 in
-    "-h" | "--help")     printf "$USAGE"; exit 0 ;;
-    "-v" | "--vim")      INSTALL_VIM=true ;;
     "-z" | "--zsh")      INSTALL_ZSH_PLUGINS=true ;;
     "-b" | "--brew")     INSTALL_BREW=true ;;
     "-n" | "--npm")      INSTALL_NPM=true ;;
     "-s" | "--symlinks") CREATE_SYMLINKS=true ;;
     "-a" | "--all")
-      INSTALL_VIM=true
       INSTALL_ZSH_PLUGINS=true
       INSTALL_BREW=true
       INSTALL_NPM=true
       CREATE_SYMLINKS=true
-      break;;
+      break ;;
+    "-h" | "--help")     printf "$USAGE"; exit 0 ;;
+    "-m" | "--mackup")   RESTORE_BACKUP=true ;;
     (--) shift; break;;
     (-*) echo "$0: error - unrecognized option $1" 1>&2; exit 1;;
     (*) break;;
@@ -73,27 +75,23 @@ if $INSTALL_BREW; then
 ##################################
 Brew formulas are being installed
 ##################################"
-  # "$DIR/installers/brew.sh"
+  sh "$DIR/installers/brew.sh"
 fi
 
 if $INSTALL_ZSH_PLUGINS; then
   echo "
-###############################
+################################
 ZSH plugins are being installed
-###############################"
-  # "$DIR/installers/zsh.sh"
+################################"
+  sh "$DIR/installers/zsh.sh"
 fi
-
-# if $INSTALL_VIM; then
-  # "$DIR/installers/vim.sh"
-# fi
 
 if $INSTALL_NPM; then
   echo "
-###############################
+################################
 npm modules are being installed
-###############################"
-  # "$DIR/installers/npm.sh"
+################################"
+  sh "$DIR/installers/npm.sh"
 fi
 
 if $CREATE_SYMLINKS; then
@@ -102,10 +100,35 @@ if $CREATE_SYMLINKS; then
 Symlinks are being created
 ############################"
   if type "rcup" > /dev/null; then
-    # rcup -d symlinks -v
+    rcup -d symlinks -v
   else
     echo "
-  Failed: 'rcm', which is used to create symlinks, was not found.
+  Failed: 'rcm', which is used to create symlinks, was not found."
+  fi
+fi
+
+if $OSX_config; then
+  zsh <(curl -s 'https://gist.githubusercontent.com/simon-johansson/3037503f37e45c83a738/raw/f4c4e0ee565ff290c60fdaaa38ffdb97db42ec72/osx-for-hackers.sh')
+fi
+
+if $RESTORE_BACKUP; then
+  echo "
+#######################################
+Restoring settings from Dropbox backup
+#######################################\n"
+  msg="Before restoring, make sure that:
+    * You have installed Dropbox and synced your account
+    * You have a .mackup.cfg in you home directory specifying what to backup/restore
+    * You are fine with overwriting your current application settings
   "
+  echo $msg
+  vared -p 'Do you want to proceed? (y/N): ' -c choice
+  if [[ $choice == y || $choice == Y ]]; then
+    if type "mackup" > /dev/null; then
+      mackup restore
+    else
+      echo "
+    Failed: 'mackup', which is used to restore backups, was not found."
+    fi
   fi
 fi
