@@ -31,7 +31,6 @@ modules=(
   'coffee-script'\
 
   # Testing & coverage
-  # 'istanbul'\
   'mocha'\
 
   # Utils
