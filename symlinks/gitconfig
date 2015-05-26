@@ -5,7 +5,7 @@
 [core]
   excludesfile = /Users/sijo/.gitignore_global
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-  editor = subl
+  editor = subl -n -w
 
 [web]
   browser = google-chrome
