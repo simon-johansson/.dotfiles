@@ -1,13 +1,10 @@
-#!/bin/bash
-
-# DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+#!/bin/zsh
 
 if !type 'brew' &> /dev/null; then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-# to be able to use brewfiles
-#brew tap Homebrew/bundle
+chown root /usr/local/bin/brew
 
 brew tap caskroom/cask
 # access specific versions to be able to install sublime-text3 & google-chrome-canary
@@ -58,10 +55,10 @@ brew cask install '1password'
 
 # Social
 brew cask install 'skype'
-brew cask install 'slack'
+# brew cask install 'slack'
 
 # Cloud apps
-brew cask install 'google-drive'
+# brew cask install 'google-drive'
 brew cask install 'dropbox'
 brew cask install 'evernote'
 
@@ -71,13 +68,14 @@ brew cask install 'spotify'
 
 # Other
 brew cask install 'the-unarchiver'
-brew cask install 'mou'
+# brew cask install 'mou'
 brew cask install 'balsamiq-mockups'
 brew cask install 'sdformatter'
 brew cask install 'appcleaner'
+brew cask install 'moom'
 
 # Games
-brew cask install 'steam'
+# brew cask install 'steam'
 
 # Quicklook extension
 brew cask install 'qlcolorcode'
@@ -103,8 +101,3 @@ brew update
 brew upgrade brew-cask
 brew cleanup
 brew cask cleanup
-
-# cd "$DIR"
-# brew bundle
-# brew bundle cleanup
-# cd -
