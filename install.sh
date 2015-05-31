@@ -1,12 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
 
-if [[ $UID != 0 ]]; then
-  echo "Please run this script with sudo:"
-  echo "sudo $0 $*"
-  exit 1
-fi
-
-USAGE="$(basename "$0") [-b --brew] [-z --zsh] [-n --npm] [-s --symlinks] [-a --all] • [-m --mackup] [-h --help]
+USAGE="$(basename "$0") [-b --brew] [-z --zsh] [-n --npm] [-s --symlinks] [-a --all] • [-o --osx] [-m --mackup] [-h --help]
 
 OPTIONS
         -b, --brew
@@ -26,6 +20,9 @@ OPTIONS
 
         -------------------------------------------------------
 
+        -o, --osx
+            Set OSX settings (screenshots folder, keyboard repeat rate, etc.)
+
         -m, --mackup
             Restore application settings from Dropbox
 
@@ -41,6 +38,7 @@ DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 INSTALL_ZSH_PLUGINS=false
 INSTALL_BREW=false
 INSTALL_NPM=false
+OSX_CONFIG=false
 CREATE_SYMLINKS=false
 RESTORE_BACKUP=false
 
@@ -61,8 +59,9 @@ while [ $# -gt 0 ]; do
       INSTALL_NPM=true
       CREATE_SYMLINKS=true
       break ;;
-    "-h" | "--help")     printf "$USAGE"; exit 0 ;;
+    "-o" | "--osx")      OSX_CONFIG=true ;;
     "-m" | "--mackup")   RESTORE_BACKUP=true ;;
+    "-h" | "--help")     printf "$USAGE"; exit 0 ;;
     (--) shift; break;;
     (-*) echo "$0: error - unrecognized option $1" 1>&2; exit 1;;
     (*) break;;
@@ -102,12 +101,11 @@ Symlinks are being created
   if type "rcup" > /dev/null; then
     rcup -d symlinks -v
   else
-    echo "
-  Failed: 'rcm', which is used to create symlinks, was not found."
+    echo "Failed: 'rcm', which is used to create symlinks, was not found."
   fi
 fi
 
-if $OSX_config; then
+if $OSX_CONFIG; then
   zsh <(curl -s 'https://gist.githubusercontent.com/simon-johansson/3037503f37e45c83a738/raw/f4c4e0ee565ff290c60fdaaa38ffdb97db42ec72/osx-for-hackers.sh')
 fi
 
