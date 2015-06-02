@@ -129,7 +129,7 @@ update_everything() {
   update_brew
   update_zsh
   update_node
-  update_ruby
+  # update_ruby
 }
 
 _updating_header() {
@@ -161,7 +161,7 @@ update_node() {
   n stable
 
   # npm
-  npm update -g
+  # npm update -g
 }
 
 update_ruby() {
