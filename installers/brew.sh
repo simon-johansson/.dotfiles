@@ -4,8 +4,6 @@ if !type 'brew' &> /dev/null; then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-chown root /usr/local/bin/brew
-
 brew tap caskroom/cask
 # access specific versions to be able to install sublime-text3 & google-chrome-canary
 brew tap caskroom/versions
