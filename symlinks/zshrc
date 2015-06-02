@@ -12,4 +12,4 @@ chpwd_functions=( auto-ls $chpwd_functions )
 # if which karn > /dev/null; then eval "$(karn init)"; fi
 
 # Get random tips when you open a new tab
-node /Users/sijo/Projects/personal/pragmatic_tips/index.js
+# node /Users/sijo/Projects/personal/pragmatic_tips/index.js
