@@ -2,29 +2,86 @@
 
 ## On a fresh install
 
+##### 1. Set zsh as the defulat shell
 ```bash
-$ cd ~ && git clone https://github.com/simon-johansson/.dotfiles.git
+$ chsh -s $(which zsh)
 ```
 
-Install dependecies
+##### 2. Clone this repo to ~/
 ```bash
-$ ...
+$ cd ~ && git clone https://github.com/simon-johansson/.dotfiles.git && cd .dotfiles/
 ```
 
-Install fonts
-...
+<!-- Run the install script using zsh
+```bash
+$ zsh install.sh
+```
+ -->
+
+##### 3. Install Homebrew & Casks + formulas
+```bash
+$ zsh installers/brew.sh
+```
+
+##### 4. Install ZSH plugins using [Antigen](https://github.com/zsh-users/antigen)
+```bash
+$ zsh installers/zsh.sh
+```
+
+##### 5. Create symlinks to `~/` for files in `symlinks/` folder
+```bash
+# Close the current terminal/iTerm window tab and
+# open a new one after finishing this step
+$ rcup -d symlinks -v
+```
+
+##### 6. Install global Node.js modules
+```bash
+$ zsh installers/npm.sh
+```
+
+##### 7. Install global Ruby gems
+```bash
+$ zsh installers/gem.sh
+```
+
+##### 8. Install font needed for zsh theme [oh-my-git](https://github.com/arialdomartini/oh-my-git)
+```bash
+$ zsh installers/fonts.sh
+```
+
+##### 9. Set OSX settings (screenshots folder, keyboard repeat rate, etc.)
+```bash
+$ zsh <(curl -s 'https://gist.githubusercontent.com/simon-johansson/3037503f37e45c83a738/raw/f4c4e0ee565ff290c60fdaaa38ffdb97db42ec72/osx-for-hackers.sh')
+```
+
+## Restoring application settings
+Syncing application settings between mac:s is done with [mackup](https://github.com/lra/mackup) using Dropbox.
+
+Before restoring, make sure that:
+
+* You have installed Dropbox and synced your account
+* You are fine with overwriting your current application settings
 
 ```bash
-$ mv ~/.zshrc ~/.zshrc.$(date +%s)
-$ ln -s ~/.zshrc.d/.zshrc
+$ mackup restore
 ```
+
+## Configure iTerm
+Open iTerm preferences and set "Load preferences from a custom folder or URL" to `~/.dotfiles/iterm`. Import `colors.itermcolors`, located in `~/.dotfiles/iterm`, as custom color scheme for some fancy colors.
+
+## Sublime Text Package Control
+Install [Package Control](https://packagecontrol.io/installation), the package manager for Sublime, in order to install packages.
 
 ## Updating
-
+Run the following command once in a while
 ```bash
-$ git submodule update
+$ update_everything
 ```
-
-## Maintaning
+It will:
+* Update Homebrew and formulas
+* Update Zsh plugins with Antigen
+* Update Node to the latest stable version
 
 ## License
+MIT
