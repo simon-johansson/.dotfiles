@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-if !type 'brew' &> /dev/null; then
+if ! type 'brew' &> /dev/null; then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
@@ -49,7 +49,9 @@ brew cask install 'istat-menus'
 brew cask install 'flux'
 brew cask install 'caffeine'
 brew cask install 'alfred'
-brew cask install '1password'
+
+# Install 1password via AppStore to get iCould sync
+# brew cask install '1password'
 
 # Social
 brew cask install 'skype'
@@ -70,7 +72,7 @@ brew cask install 'the-unarchiver'
 brew cask install 'balsamiq-mockups'
 brew cask install 'sdformatter'
 brew cask install 'appcleaner'
-brew cask install 'moom'
+# brew cask install 'moom'
 
 # Games
 # brew cask install 'steam'
