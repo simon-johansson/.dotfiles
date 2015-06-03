@@ -52,7 +52,7 @@ $ zsh installers/fonts.sh
 
 ##### 9. Set OSX settings (screenshots folder, keyboard repeat rate, etc.)
 ```bash
-$ zsh <(curl -s 'https://gist.githubusercontent.com/simon-johansson/3037503f37e45c83a738/raw/f4c4e0ee565ff290c60fdaaa38ffdb97db42ec72/osx-for-hackers.sh')
+$ zsh <(curl -s 'https://gist.githubusercontent.com/brandonb927/3195465/raw/1ec980e6803610791d36e45e1fc5a9ce3cd40507/osx-for-hackers.sh')
 ```
 
 ## Restoring application settings
