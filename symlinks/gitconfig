@@ -13,6 +13,9 @@
 [commit]
   template = ~/.gitmessage
 
+[push]
+  default = simple
+
 [merge]
   tool = sublimerge
 
