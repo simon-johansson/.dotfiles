@@ -15,25 +15,11 @@ function github() {
   open $giturl
 }
 
-function dash { open dash://"$1"; }
+function dash() { open dash://"$1"; }
 
-function take {
+function take() {
   mkdir $1;
   cd $1;
-}
-
-function remove_firefox_certs {
-  # For linux
-  # ROOT_PATH="~/.mozilla/firefox/"
-  # For mac
-  ROOT_PATH="~/Library/Application Support/Firefox/Profiles"
-  echo $PATH_TO_CERT
-  if [ -f $ROOT_PATH/*.default/cert8.db ]; then
-      rm $ROOT_PATH/*.default/cert8.db
-      echo "Certificates have been removed"
-    else
-      echo "No certificate found"
-  fi
 }
 
 function up() {
@@ -46,7 +32,7 @@ function up() {
   cd $P
 }
 
-load() {
+function load() {
     regexp="$1"
     root="$PWD"
     if [ ! -z "$2" ]; then
@@ -59,22 +45,22 @@ load() {
     fi
 }
 
-json () {
+function json() {
     python -m json.tool $1 | pygmentize -l javascript
 }
 
 # Copy the full absolute path into the clipboard, and also echo it.
-copy-path () {
+function copy_path() {
     pwd | pbcopy
 }
 
-tophistory() {
+function tophistory() {
   history | awk '{a[$2]++ } END{for(i in a){print a[i] " " i}}' | sort -rn | head -n 30
 }
 
 # dlfrom user@example.com /tmp/files.tar ['.']
 # rsync -v user@example.com:/tmp/files.tar .
-dlfrom () {
+function dlfrom() {
     ssh=$1
     remote_file=$2
     local_path='.'
@@ -84,7 +70,7 @@ dlfrom () {
     rsync -v $ssh:$remote_file $local_path
 }
 
-function extract {
+function extract() {
   echo Extracting $1 ...
   if [ -f $1 ] ; then
       case $1 in
@@ -107,7 +93,7 @@ function extract {
 }
 
 # display a neatly formatted path
-path() {
+function path() {
   echo $PATH | tr ":" "\n" | \
     awk "{ sub(\"/usr\",   \"$fg_no_bold[green]/usr$reset_color\"); \
            sub(\"/bin\",   \"$fg_no_bold[blue]/bin$reset_color\"); \
@@ -117,7 +103,7 @@ path() {
            print }"
 }
 
-cat() {
+function cat() {
   local out colored
   out=$(/bin/cat $@)
   colored=$(echo $out | pygmentize -f console -g 2>/dev/null)
@@ -125,21 +111,21 @@ cat() {
 }
 
 # Skriv ut så att man ser vad som installeras/uppdateras
-update_everything() {
+function update_everything() {
   update_brew
   update_zsh
   update_node
   # update_ruby
 }
 
-_updating_header() {
+function _updating_header() {
   echo "
 *****************************
   $1 IS BEING UPDATED
 *****************************\n"
 }
 
-update_brew() {
+function update_brew() {
   _updating_header 'HOMEBREW'
   brew update
   brew upgrade --all
@@ -147,13 +133,13 @@ update_brew() {
   brew cask cleanup
 }
 
-update_zsh() {
+function update_zsh() {
   _updating_header 'ZSH'
   antigen selfupdate
   antigen update
 }
 
-update_node() {
+function update_node() {
   _updating_header 'NODE'
   # Node
   npm cache clean -f
@@ -164,7 +150,7 @@ update_node() {
   # npm update -g
 }
 
-update_ruby() {
+function update_ruby() {
   _updating_header 'RUBY'
   update_rubygems
   gem update --system
