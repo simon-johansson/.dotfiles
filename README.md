@@ -55,6 +55,10 @@ $ zsh installers/fonts.sh
 $ zsh <(curl -s 'https://gist.githubusercontent.com/brandonb927/3195465/raw/1ec980e6803610791d36e45e1fc5a9ce3cd40507/osx-for-hackers.sh')
 ```
 
+#### Also...
+
+* Create SSH-keys
+
 ## Restoring application settings
 Syncing application settings between mac:s is done with [mackup](https://github.com/lra/mackup) using Dropbox.
 
