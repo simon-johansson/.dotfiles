@@ -1,62 +1,63 @@
 # .dotfiles
 
-## On a fresh install
+> My dotfile setup on OSX. Probably not be terribly interasting for anyone besides myself.
 
-##### 1. Set zsh as the defulat shell
+## On a new machine
+
 ```bash
+# 1. Set zsh as the defulat shell
 $ chsh -s $(which zsh)
 ```
 
-##### 2. Clone this repo to ~/
 ```bash
+# 2. Clone this repo to ~/
 $ cd ~ && git clone https://github.com/simon-johansson/.dotfiles.git && cd .dotfiles/
 ```
 
-<!-- Run the install script using zsh
 ```bash
-$ zsh install.sh
-```
- -->
-
-##### 3. Install Homebrew & Casks + formulas
-```bash
+# 3. Install Homebrew & Casks + formulas
 $ zsh installers/brew.sh
 ```
 
-##### 4. Install ZSH plugins using [Antigen](https://github.com/zsh-users/antigen)
 ```bash
+# 4. Install ZSH plugins using Antigen
 $ zsh installers/zsh.sh
 ```
 
-##### 5. Create symlinks to `~/` for files in `symlinks/` folder
 ```bash
-# Close the current terminal/iTerm window tab and
-# open a new one after finishing this step
+# 5. Create symlinks to `~/` for files in `symlinks/` folder
 $ rcup -d symlinks -v
+# Close the current terminal/iTerm window tab and open a new one after finishing
+# this step to access the symlinked dotfiles and install all zsh plugins
 ```
 
-##### 6. Install global Node.js modules
 ```bash
+# Install global Node.js modules
 $ zsh installers/npm.sh
 ```
 
-##### 7. Install global Ruby gems
 ```bash
+# Install global Ruby gems
 $ zsh installers/gem.sh
 ```
 
-##### 8. Install font needed for zsh theme [oh-my-git](https://github.com/arialdomartini/oh-my-git)
 ```bash
+# Install fonts needed for oh-my-git zsh theme
 $ zsh installers/fonts.sh
 ```
 
-##### 9. Set OSX settings (screenshots folder, keyboard repeat rate, etc.)
 ```bash
+# Set OSX settings (screenshots folder, keyboard repeat rate, etc.)
 $ zsh <(curl -s 'https://gist.githubusercontent.com/brandonb927/3195465/raw/1ec980e6803610791d36e45e1fc5a9ce3cd40507/osx-for-hackers.sh')
 ```
 
-#### Also...
+#### Other things that needs to be done
 
+* Change caps-lock key to be ctrl
+* Change direction of trackpad scroll
+* Set default download folder to `/tmp`
+* Create a `~/Projects` folder
+* Set `⌘ + <` to switch between windows
 * Create SSH-keys
 
 ## Restoring application settings
@@ -71,8 +72,19 @@ Before restoring, make sure that:
 $ mackup restore
 ```
 
+#### Alfred
+Open Alred > Preferences. Then `Set sync folder...` to Dropbox folder.
+
 ## Configure iTerm
-Open iTerm preferences and set "Load preferences from a custom folder or URL" to `~/.dotfiles/iterm`. Import `colors.itermcolors`, located in `~/.dotfiles/iterm`, as custom color scheme for some fancy colors.
+* Open iTerm preferences and set "Load preferences from a custom folder or URL" to `~/.dotfiles/iterm`.
+* Create a new user under "Profiles" and set as default
+* Import `colors.itermcolors`, located in `~/.dotfiles/iterm`, as custom color scheme for some fancy colors.
+* [Setup iTerm 2 to work with normal Mac OSX keyboard shortcuts](http://elweb.co/making-iterm-2-work-with-normal-mac-osx-keyboard-shortcuts/)
+
+![](iterm/general.png)
+![](iterm/text.png)
+![](iterm/window.png)
+![](iterm/terminal.png)
 
 ## Sublime Text Package Control
 Install [Package Control](https://packagecontrol.io/installation), the package manager for Sublime, in order to install packages.
