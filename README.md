@@ -58,7 +58,7 @@ $ zsh <(curl -s 'https://gist.githubusercontent.com/brandonb927/3195465/raw/1ec9
 * Set default download folder to `/tmp`
 * Create a `~/Projects` folder
 * Set `⌘ + <` to switch between windows
-* Create SSH-keys
+* [Generate SSH keys](https://help.github.com/articles/generating-ssh-keys/)
 
 ## Restoring application settings
 Syncing application settings between mac:s is done with [mackup](https://github.com/lra/mackup) using Dropbox.
