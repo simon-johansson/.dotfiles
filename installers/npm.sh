@@ -35,11 +35,9 @@ modules=(
 
   # Utils
   'n'
-  'js2coffee'
   'nodemon'
   'http-server'
   'npm-check-updates'
-  'watch-lessc'
   'fixpack'
   )
 
