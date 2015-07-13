@@ -28,6 +28,7 @@ brew install 'python'
 brew install 'unrar'
 brew install 'mackup'
 brew install 'karn'
+brew install 'heroku-toolbelt'
 brew install 'rcm'
 
 # Cask
