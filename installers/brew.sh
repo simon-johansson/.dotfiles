@@ -30,6 +30,8 @@ brew install 'mackup'
 brew install 'karn'
 brew install 'heroku-toolbelt'
 brew install 'rcm'
+brew install 'rbenv'
+brew install 'ruby-build'
 
 # Cask
 brew install caskroom/cask/brew-cask
