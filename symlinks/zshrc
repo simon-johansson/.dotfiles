@@ -11,5 +11,7 @@ chpwd_functions=( auto-ls $chpwd_functions )
 # Uncomment to run 'karn update' on every git command
 # if which karn > /dev/null; then eval "$(karn init)"; fi
 
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 # Get random tips when you open a new tab
 # node /Users/sijo/Projects/personal/pragmatic_tips/index.js
