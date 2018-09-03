@@ -7,8 +7,6 @@ fi
 brew tap caskroom/cask
 # access specific versions to be able to install sublime-text3 & google-chrome-canary
 brew tap caskroom/versions
-# to be able to install fonts via cask
-brew tap caskroom/fonts
 
 # Thoughtbots rcm dotfile management lib
 brew tap thoughtbot/formulae
@@ -26,21 +24,31 @@ brew install 'autojump'
 brew install 'mongodb'
 brew install 'python'
 brew install 'unrar'
-brew install 'mackup'
 brew install 'karn'
-brew install 'heroku-toolbelt'
 brew install 'rcm'
 brew install 'rbenv'
 brew install 'ruby-build'
+brew install 'trash'
+brew install 'antigen'
+brew install 'mackup'
+# brew install 'heroku-toolbelt'
 
 # Cask
-brew install caskroom/cask/brew-cask
+# brew install caskroom/cask/brew-cask
 
 # Programming
 brew cask install 'iterm2'
 brew cask install 'transmit'
-brew cask install 'gitx'
-brew cask install 'sublime-text3'
+brew cask install 'rowanj-gitx'
+# brew cask install 'sublime-text3'
+# brew cask install 'atom'
+# brew cask install 'virtualbox'
+brew cask install 'sourcetree'
+brew cask install 'postman'
+
+# Design
+brew cask install 'zeplin'
+brew cask install 'sketch'
 
 # Browsers
 brew cask install 'google-chrome'
@@ -53,17 +61,15 @@ brew cask install 'flux'
 brew cask install 'caffeine'
 brew cask install 'alfred'
 
-# Install 1password via AppStore to get iCould sync
-# brew cask install '1password'
-
 # Social
-brew cask install 'skype'
-# brew cask install 'slack'
+brew cask install 'slack'
+brew cask install 'microsoft-teams'
+# brew cask install 'skype'
 
 # Cloud apps
-# brew cask install 'google-drive'
 brew cask install 'dropbox'
-brew cask install 'evernote'
+# brew cask install 'google-drive'
+# brew cask install 'evernote'
 
 # Media
 brew cask install 'vlc'
@@ -71,36 +77,24 @@ brew cask install 'spotify'
 
 # Other
 brew cask install 'the-unarchiver'
-# brew cask install 'mou'
-brew cask install 'balsamiq-mockups'
-brew cask install 'sdformatter'
 brew cask install 'appcleaner'
+# brew cask install 'mou'
+# brew cask install 'balsamiq-mockups'
+# brew cask install 'sdformatter'
 # brew cask install 'moom'
 
 # Games
-# brew cask install 'steam'
-
-# Quicklook extension
-brew cask install 'qlcolorcode'
-brew cask install 'qlstephen'
-brew cask install 'qlmarkdown'
-brew cask install 'quicklook-json'
-brew cask install 'qlprettypatch'
-brew cask install 'quicklook-csv'
-brew cask install 'betterzipql'
-brew cask install 'webpquicklook'
-brew cask install 'suspicious-package'
-
-# Fonts
-brew cask install 'font-fontawesome'
-brew cask install 'font-source-code-pro'
-brew cask install 'font-source-code-pro-for-powerline'
-brew cask install 'font-inconsolata'
-brew cask install 'font-inconsolata-for-powerline'
-brew cask install 'font-droid-sans-mono'
-brew cask install 'font-droid-sans-mono-for-powerline'
+brew cask install 'steam'
 
 brew update
 brew upgrade brew-cask
 brew cleanup
 brew cask cleanup
+
+# Other apps (not available on cask)
+# Wunderlist
+# Things
+# 1password (from appstore)
+# Giphy
+# Office 365
+# Moom

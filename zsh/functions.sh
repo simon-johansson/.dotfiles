@@ -92,25 +92,6 @@ function extract() {
   fi
 }
 
-# display a neatly formatted path
-function path() {
-  echo $PATH | tr ":" "\n" | \
-    awk "{ sub(\"/usr\",   \"$fg_no_bold[green]/usr$reset_color\"); \
-           sub(\"/bin\",   \"$fg_no_bold[blue]/bin$reset_color\"); \
-           sub(\"/opt\",   \"$fg_no_bold[cyan]/opt$reset_color\"); \
-           sub(\"/sbin\",  \"$fg_no_bold[magenta]/sbin$reset_color\"); \
-           sub(\"/local\", \"$fg_no_bold[yellow]/local$reset_color\"); \
-           print }"
-}
-
-function cat() {
-  local out colored
-  out=$(/bin/cat $@)
-  colored=$(echo $out | pygmentize -f console -g 2>/dev/null)
-  [[ -n $colored ]] && echo "$colored" || echo "$out"
-}
-
-# Skriv ut så att man ser vad som installeras/uppdateras
 function update_everything() {
   update_brew
   update_zsh
@@ -135,19 +116,18 @@ function update_brew() {
 
 function update_zsh() {
   _updating_header 'ZSH'
-  antigen selfupdate
+  source $ANTIGEN
   antigen update
 }
 
 function update_node() {
   _updating_header 'NODE'
-  # Node
-  npm cache clean -f
-  npm install -g n
+
+  # Install and activate latest stable version of node
   n stable
 
-  # npm
-  # npm update -g
+  # Install/update important packages
+  zsh $DOTFILES/installers/npm.sh
 }
 
 function update_ruby() {

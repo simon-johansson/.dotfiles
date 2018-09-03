@@ -34,7 +34,6 @@ alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
 
 # Remote machines
 alias webfaction="ssh sijoh006@web371.webfaction.com"
-alias trolla="ssh sijo@trol.la"
 
 # Other
 alias mkdir="mkdir -p "

@@ -1,46 +1,25 @@
+
 #!/bin/zsh
 
-modules=(
+node_modules=(
   # Package managers
   'npm'
-  'bower'
+  # 'bower'
 
   # Yeoman
   'yo'
-  'generator-angular-fullstack'
-  'generator-webapp'
 
   # Generators
-  'sails'
   'express-generator'
-
-  # Grunt & gulp
-  'grunt-cli'
-  'gulp'
-
-  # Linting
-  'jshint'
-  'coffeelint'
-  'csslint'
-
-  # Compilers
-  'node-sass'
-  'less'
-  'jade'
-  'browserify'
-  'coffee-script'
-
-  # Testing & coverage
-  'mocha'
 
   # Utils
   'n'
   'nodemon'
   'http-server'
   'npm-check-updates'
-  'fixpack'
+  # 'fixpack'
   )
 
-for mod in $modules; do
-  sudo npm install -g $mod
+for mod in $node_modules; do
+  npm install -g $mod
 done

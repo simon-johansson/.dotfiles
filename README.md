@@ -1,6 +1,6 @@
 # .dotfiles
 
-> My dotfile setup on OSX. Probably not be terribly interasting for anyone besides myself.
+> My dotfile setup on OSX. Probably not terribly interesting for anyone besides myself.
 
 ## On a new machine
 
@@ -20,11 +20,6 @@ $ zsh installers/brew.sh
 ```
 
 ```bash
-# 4. Install ZSH plugins using Antigen
-$ zsh installers/zsh.sh
-```
-
-```bash
 # 5. Create symlinks to `~/` for files in `symlinks/` folder
 $ rcup -d symlinks -v
 # Close the current terminal/iTerm window tab and open a new one after finishing
@@ -41,25 +36,20 @@ $ zsh installers/npm.sh
 $ zsh installers/gem.sh
 ```
 
-```bash
-# Install fonts needed for oh-my-git zsh theme
-$ zsh installers/fonts.sh
-```
-
-```bash
-# Set OSX settings (screenshots folder, keyboard repeat rate, etc.)
-$ zsh <(curl -s 'https://gist.githubusercontent.com/brandonb927/3195465/raw/1ec980e6803610791d36e45e1fc5a9ce3cd40507/osx-for-hackers.sh')
-```
-
 #### Other things that needs to be done
 
+* Set OSX settings (screenshots folder, keyboard repeat rate, etc.): [https://github.com/mathiasbynens/dotfiles/blob/master/.macos](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)
 * Change caps-lock key to be ctrl
 * Change direction of trackpad scroll
 * Set default download folder to `/tmp`
-* Create a `~/Projects` folder
-* Set `⌘ + <` to switch between windows
+* Create a `~/Projects` folder with `work/` and `personal/` subfolders
+* Set shortcut `⌘ + <` to "Move focus to next window"
 * [Generate SSH keys](https://help.github.com/articles/generating-ssh-keys/)
+* Install [nativefier](https://github.com/jiahaog/nativefier) and make apps for Gmail and Outlook
+* In `/private/etc/hosts` file, put `127.0.0.1 localhost l`.
+* Install [WebViewScreenSaver](https://github.com/liquidx/webviewscreensaver)
 
+<!--
 ## Restoring application settings
 Syncing application settings between mac:s is done with [mackup](https://github.com/lra/mackup) using Dropbox.
 
@@ -71,9 +61,10 @@ Before restoring, make sure that:
 ```bash
 $ mackup restore
 ```
+ -->
 
 #### Alfred
-Open Alred > Preferences. Then `Set sync folder...` to Dropbox folder.
+Open Alred > Preferences. Then `Set sync folder...` to Dropbox folder `Dropbox/Alfred/`.
 
 ## Configure iTerm
 * Open iTerm preferences and set "Load preferences from a custom folder or URL" to `~/.dotfiles/iterm`.
@@ -95,9 +86,9 @@ Run the following command once in a while
 $ update_everything
 ```
 It will:
-* Update Homebrew and formulas
-* Update Zsh plugins with Antigen
-* Update Node to the latest stable version
+* Update Homebrew and installed formulas
+* Update ZSH plugins with Antigen
+* Update NPM modules and Node to the latest stable version
 
 ## License
 MIT

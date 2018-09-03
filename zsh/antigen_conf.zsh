@@ -4,29 +4,34 @@ antigen use oh-my-zsh
 # prompt when not in a git repo
 PS1="%~ • "
 
+# Plugin settings
+ANTIGEN_AUTOUPDATE_VERBOSE=true
+
 antigen bundles <<EOBUNDLES
-command-not-found
-autojump
-git
-brew
-sublime
+  command-not-found
+  autojump
+  git
+  brew
+  sublime
+  history
 
-zsh-users/zsh-syntax-highlighting
-zsh-users/zsh-history-substring-search
-arialdomartini/oh-my-git
-unixorn/autoupdate-antigen.zshplugin
-djui/alias-tips
-voronkovich/gitignore.plugin.zsh
-walesmd/caniuse.plugin.zsh
+  zsh-users/zsh-syntax-highlighting
+  zsh-users/zsh-history-substring-search
+  zsh-users/zsh-autosuggestions
+  djui/alias-tips
+  voronkovich/gitignore.plugin.zsh
 
-# npm
-# osx
-# zsh-users/zsh-completions src
-# supercrabtree/k
+  # unixorn/autoupdate-antigen.zshplugin
+  # npm
+  # arialdomartini/oh-my-git
+  # osx
+  # zsh-users/zsh-completions src
+  # supercrabtree/k
 EOBUNDLES
 
 # Load the theme.
-antigen theme arialdomartini/oh-my-git-themes oppa-lana-style
+# antigen theme sindresorhus/pure pure
+antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 
 # Tell antigen that you're done.
 antigen apply
@@ -35,9 +40,3 @@ antigen apply
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
-
-# bind UP and DOWN arrow keys (compatibility fallback
-# for Ubuntu 12.04, Fedora 21, and MacOSX 10.9 users)
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-

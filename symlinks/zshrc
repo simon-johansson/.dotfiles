@@ -1,6 +1,9 @@
 
+export PATH="/usr/local/bin:$PATH"
 export DOTFILES=~/.dotfiles
-export ANTIGEN=~/.antigen
+
+# Path to Antigen installation from HomeBrew
+export ANTIGEN=/usr/local/share/antigen/antigen.zsh
 
 source $DOTFILES/zsh/bootstrap.zsh
 
