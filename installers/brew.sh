@@ -30,7 +30,7 @@ brew install 'rbenv'
 brew install 'ruby-build'
 brew install 'trash'
 brew install 'antigen'
-brew install 'mackup'
+# brew install 'mackup'
 # brew install 'heroku-toolbelt'
 
 # Cask
