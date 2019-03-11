@@ -14,10 +14,11 @@ antigen bundles <<EOBUNDLES
   brew
   sublime
   history
-
+  
   zsh-users/zsh-syntax-highlighting
   zsh-users/zsh-history-substring-search
   zsh-users/zsh-autosuggestions
+  zsh-users/zsh-completions
   djui/alias-tips
   voronkovich/gitignore.plugin.zsh
 
