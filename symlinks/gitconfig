@@ -1,9 +1,9 @@
 [user]
-  name = Simon Johansson
+	name = Simon Johansson
 	email = mail@simon-johansson.com
 
 [core]
-  excludesfile = /Users/sijo/.gitignore_global
+	excludesfile = /Users/sijo/.gitignore_global
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
   editor = code --wait
 
@@ -11,16 +11,16 @@
   browser = google-chrome
 
 [commit]
-  template = ~/.gitmessage
+	template = ~/.gitmessage
 
 [push]
   default = simple
 
 [merge]
-  tool = sublimerge
+	tool = sublimerge
 
 [mergetool "sublimerge"]
-  cmd = subl -n --wait \"$REMOTE\" \"$BASE\" \"$LOCAL\" \"$MERGED\" --command \"sublimerge_diff_views\"
+	cmd = subl -n --wait \"$REMOTE\" \"$BASE\" \"$LOCAL\" \"$MERGED\" --command \"sublimerge_diff_views\"
   trustExitCode = false
 
 [diff]
@@ -32,5 +32,10 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
