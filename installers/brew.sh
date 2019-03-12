@@ -21,7 +21,7 @@ brew install 'tree'
 brew install 'node'
 brew install 'git'
 brew install 'autojump'
-brew install 'mongodb'
+# brew install 'mongodb'
 brew install 'python'
 brew install 'unrar'
 brew install 'karn'
@@ -38,17 +38,19 @@ brew install 'antigen'
 
 # Programming
 brew cask install 'iterm2'
-brew cask install 'transmit'
+# brew cask install 'transmit'
 brew cask install 'rowanj-gitx'
 # brew cask install 'sublime-text3'
 # brew cask install 'atom'
 # brew cask install 'virtualbox'
 brew cask install 'sourcetree'
 brew cask install 'postman'
+brew cask install 'dash'
+brew cask install 'visual-studio-code'
 
 # Design
 brew cask install 'zeplin'
-brew cask install 'sketch'
+# brew cask install 'sketch'
 
 # Browsers
 brew cask install 'google-chrome'
@@ -63,7 +65,7 @@ brew cask install 'alfred'
 
 # Social
 brew cask install 'slack'
-brew cask install 'microsoft-teams'
+# brew cask install 'microsoft-teams'
 # brew cask install 'skype'
 
 # Cloud apps
@@ -87,7 +89,7 @@ brew cask install 'appcleaner'
 brew cask install 'steam'
 
 brew update
-brew upgrade brew-cask
+# brew upgrade brew-cask
 brew cleanup
 brew cask cleanup
 
@@ -98,3 +100,6 @@ brew cask cleanup
 # Giphy
 # Office 365
 # Moom
+# StarUML
+# ImageOptim
+# nativefier (Gmail, Messanger, Calendar)
