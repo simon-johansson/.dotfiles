@@ -2,6 +2,9 @@
 export PATH="/usr/local/bin:$PATH"
 export DOTFILES=~/.dotfiles
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # Path to Antigen installation from HomeBrew
 export ANTIGEN=/usr/local/share/antigen/antigen.zsh
 
